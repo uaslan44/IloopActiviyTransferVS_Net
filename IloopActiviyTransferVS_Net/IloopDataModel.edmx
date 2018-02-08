@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ILOOPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblActivity">
+          <Key>
+            <PropertyRef Name="intActivityID" />
+          </Key>
+          <Property Name="intActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intActivityTypeID" Type="int" />
+          <Property Name="intProjectID" Type="int" />
+          <Property Name="strUserActivityComment" Type="varchar" MaxLength="1000" />
+          <Property Name="intUserID" Type="int" />
+          <Property Name="dtActivityDate" Type="smalldatetime" />
+          <Property Name="intActivityDuration" Type="int" />
+          <Property Name="intActivityStatus" Type="tinyint" />
+          <Property Name="intActivityPDSTask" Type="bigint" />
+          <Property Name="intCustomerID" Type="int" Nullable="false" />
+          <Property Name="strRejectComment" Type="varchar" MaxLength="300" />
+          <Property Name="intApproverID" Type="int" />
+          <Property Name="dtCreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblHolidayRequest">
+          <Key>
+            <PropertyRef Name="intHolidayRequestID" />
+          </Key>
+          <Property Name="intHolidayRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="dtDateOfRequest" Type="smalldatetime" Nullable="false" />
+          <Property Name="dtHolidayBeginDate" Type="smalldatetime" />
+          <Property Name="dtHolidayEndDate" Type="smalldatetime" />
+          <Property Name="intTotalHours" Type="int" Nullable="false" />
+          <Property Name="intHolidayTypeID" Type="int" Nullable="false" />
+          <Property Name="strDetails" Type="varchar" MaxLength="500" />
+          <Property Name="dtWorkYear" Type="int" Nullable="false" />
+          <Property Name="intHolidayApprovalTypeID" Type="int" Nullable="false" />
+          <Property Name="intSuperVisorApprover" Type="int" />
+          <Property Name="dtCreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblOfficialHolidays">
+          <Key>
+            <PropertyRef Name="intOfficialHolidayID" />
+          </Key>
+          <Property Name="intOfficialHolidayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dtHolidayDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="EN" Type="varchar" MaxLength="200" />
+          <Property Name="FR" Type="varchar" MaxLength="200" />
+          <Property Name="TR" Type="varchar" MaxLength="200" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ILOOPModelStoreContainer">
+          <EntitySet Name="tblActivity" EntityType="Self.tblActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHolidayRequest" EntityType="Self.tblHolidayRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOfficialHolidays" EntityType="Self.tblOfficialHolidays" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ILOOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblActivity">
+          <Key>
+            <PropertyRef Name="intActivityID" />
+          </Key>
+          <Property Name="intActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intActivityTypeID" Type="Int32" />
+          <Property Name="intProjectID" Type="Int32" />
+          <Property Name="strUserActivityComment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="intUserID" Type="Int32" />
+          <Property Name="dtActivityDate" Type="DateTime" Precision="0" />
+          <Property Name="intActivityDuration" Type="Int32" />
+          <Property Name="intActivityStatus" Type="Byte" />
+          <Property Name="intActivityPDSTask" Type="Int64" />
+          <Property Name="intCustomerID" Type="Int32" Nullable="false" />
+          <Property Name="strRejectComment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="intApproverID" Type="Int32" />
+          <Property Name="dtCreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblHolidayRequest">
+          <Key>
+            <PropertyRef Name="intHolidayRequestID" />
+          </Key>
+          <Property Name="intHolidayRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intUserID" Type="Int32" Nullable="false" />
+          <Property Name="dtDateOfRequest" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dtHolidayBeginDate" Type="DateTime" Precision="0" />
+          <Property Name="dtHolidayEndDate" Type="DateTime" Precision="0" />
+          <Property Name="intTotalHours" Type="Int32" Nullable="false" />
+          <Property Name="intHolidayTypeID" Type="Int32" Nullable="false" />
+          <Property Name="strDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtWorkYear" Type="Int32" Nullable="false" />
+          <Property Name="intHolidayApprovalTypeID" Type="Int32" Nullable="false" />
+          <Property Name="intSuperVisorApprover" Type="Int32" />
+          <Property Name="dtCreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblOfficialHolidays">
+          <Key>
+            <PropertyRef Name="intOfficialHolidayID" />
+          </Key>
+          <Property Name="intOfficialHolidayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dtHolidayDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FR" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TR" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ILOOPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblActivity" EntityType="Self.tblActivity" />
+          <EntitySet Name="tblHolidayRequest" EntityType="Self.tblHolidayRequest" />
+          <EntitySet Name="tblOfficialHolidays" EntityType="Self.tblOfficialHolidays" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ILOOPModelStoreContainer" CdmEntityContainer="ILOOPEntities">
+          <EntitySetMapping Name="tblActivity">
+            <EntityTypeMapping TypeName="ILOOPModel.tblActivity">
+              <MappingFragment StoreEntitySet="tblActivity">
+                <ScalarProperty Name="intActivityID" ColumnName="intActivityID" />
+                <ScalarProperty Name="intActivityTypeID" ColumnName="intActivityTypeID" />
+                <ScalarProperty Name="intProjectID" ColumnName="intProjectID" />
+                <ScalarProperty Name="strUserActivityComment" ColumnName="strUserActivityComment" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="dtActivityDate" ColumnName="dtActivityDate" />
+                <ScalarProperty Name="intActivityDuration" ColumnName="intActivityDuration" />
+                <ScalarProperty Name="intActivityStatus" ColumnName="intActivityStatus" />
+                <ScalarProperty Name="intActivityPDSTask" ColumnName="intActivityPDSTask" />
+                <ScalarProperty Name="intCustomerID" ColumnName="intCustomerID" />
+                <ScalarProperty Name="strRejectComment" ColumnName="strRejectComment" />
+                <ScalarProperty Name="intApproverID" ColumnName="intApproverID" />
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHolidayRequest">
+            <EntityTypeMapping TypeName="ILOOPModel.tblHolidayRequest">
+              <MappingFragment StoreEntitySet="tblHolidayRequest">
+                <ScalarProperty Name="intHolidayRequestID" ColumnName="intHolidayRequestID" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="dtDateOfRequest" ColumnName="dtDateOfRequest" />
+                <ScalarProperty Name="dtHolidayBeginDate" ColumnName="dtHolidayBeginDate" />
+                <ScalarProperty Name="dtHolidayEndDate" ColumnName="dtHolidayEndDate" />
+                <ScalarProperty Name="intTotalHours" ColumnName="intTotalHours" />
+                <ScalarProperty Name="intHolidayTypeID" ColumnName="intHolidayTypeID" />
+                <ScalarProperty Name="strDetails" ColumnName="strDetails" />
+                <ScalarProperty Name="dtWorkYear" ColumnName="dtWorkYear" />
+                <ScalarProperty Name="intHolidayApprovalTypeID" ColumnName="intHolidayApprovalTypeID" />
+                <ScalarProperty Name="intSuperVisorApprover" ColumnName="intSuperVisorApprover" />
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOfficialHolidays">
+            <EntityTypeMapping TypeName="ILOOPModel.tblOfficialHolidays">
+              <MappingFragment StoreEntitySet="tblOfficialHolidays">
+                <ScalarProperty Name="intOfficialHolidayID" ColumnName="intOfficialHolidayID" />
+                <ScalarProperty Name="dtHolidayDate" ColumnName="dtHolidayDate" />
+                <ScalarProperty Name="EN" ColumnName="EN" />
+                <ScalarProperty Name="FR" ColumnName="FR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
